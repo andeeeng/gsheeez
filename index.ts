@@ -82,7 +82,7 @@ function listMajors(auth) {
   const sheets = google.sheets({ version: 'v4', auth })
   sheets.spreadsheets.values.get(
     {
-      spreadsheetId: '1ux7ttNVuTbMaIfcW4t8tZe9Ii17F-3khXjHR8Il2dGI',
+      spreadsheetId: '1IEIz2MKv7brwYJb3uZ09kP06j8L0PrghT1yr0h3c39U',
       range: 'A:O',
     },
     (err, res) => {
@@ -98,8 +98,8 @@ function listMajors(auth) {
 
       const keys = toJson.map(item => {
         return {
-          'Shipment No.:': item['Shipment No.:'],
-          'Delivery Order No.:': item['Delivery Order No.:'],
+          'Budget no.': item['Budget no.'],
+          'Budget Name': item['Budget Name'],
         }
       })
       const grouped = groupByKeys(keys, toJson)
@@ -114,7 +114,7 @@ function listMajors(auth) {
 
   sheets.spreadsheets.values.update(
     {
-      spreadsheetId: '1ux7ttNVuTbMaIfcW4t8tZe9Ii17F-3khXjHR8Il2dGI',
+      spreadsheetId: '1IEIz2MKv7brwYJb3uZ09kP06j8L0PrghT1yr0h3c39U',
       valueInputOption: 'USER_ENTERED',
       range: 'Sheet1!O2',
       requestBody: {
